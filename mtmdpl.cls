@@ -1,19 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-% File:     aghdpl.cls           (LaTeX Document class option "aghdpl")
+% File:     mtmdpl.cls           (LaTeX Document class option "mtmdpl")
 %          
-% Author:  Paweł Kłeczek      (pkleczek@agh.edu.pl)
+% Author:  Piotr Kaczmarczyk  (piotr.kaczmarczyk@agh.edu.pl)
+%          Andrzej Kozdrowki  (akozdrowski@stduent.agh.edu.pl)
+%          Paweł Kłeczek      (pkleczek@agh.edu.pl)
 %          Grzegorz J. Nalepa (gjn@agh.edu.pl)
 %          Marcin Szpyrka     (mszpyrka@agh.edu.pl)
-%          AGH University of Science and Technology, Kraków, POLAND
+%          AGH University of Krakow, Kraków, POLAND
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{*** [aghdpl.cls] ---  (PK, GJN, MSz)  v4.0 <2020-11-03>  ***}       
+\message{*** [mtmdpl.cls] ---  (PKa, AK, PK, GJN, MSz)  v0.9.0-beta <2025-10-15>  ***}       
 
 \newif\ifpdflatex\pdflatexfalse
 \NeedsTeXFormat{LaTeX2e} % 
-\ProvidesClass{aghdpl} 
+\ProvidesClass{mtmdpl}[2025/10/15 v0.9.0-beta MTM diploma class] 
 
 \RequirePackage{kvoptions}
 
@@ -26,13 +28,13 @@
 
 \RequirePackage{xstring}
 
-\show\aghdpl@language
+\show\mtmdpl@language
 
 \newcommand{\ThesisLanguage}{pl}
-\IfStrEqCase{\aghdpl@language}{%
+\IfStrEqCase{\mtmdpl@language}{%
 	{en}{\renewcommand{\ThesisLanguage}{en}}%
 	{pl}{\renewcommand{\ThesisLanguage}{pl}}%
-}[\PackageError{aghdpl}{Invalid thesis language.}{Available languages: Polish (pl), English (en)}]
+}[\PackageError{mtmdpl}{Invalid thesis language.}{Available languages: Polish (pl), English (en)}]
 
 \show\ThesisLanguage
 
