@@ -1,21 +1,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % File:     mtmdpl.cls           (LaTeX Document class option "mtmdpl")
-%          
+%
 % Author:  Piotr Kaczmarczyk  (piotr.kaczmarczyk@agh.edu.pl)
 %          Andrzej Kozdrowki  (akozdrowski@stduent.agh.edu.pl)
 %          Paweł Kłeczek      (pkleczek@agh.edu.pl)
 %          Grzegorz J. Nalepa (gjn@agh.edu.pl)
 %          Marcin Szpyrka     (mszpyrka@agh.edu.pl)
 %          AGH University of Krakow, Kraków, POLAND
-% 
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{*** [mtmdpl.cls] ---  (PKa, AK, PK, GJN, MSz)  v0.9.0-beta <2025-10-15>  ***}       
+\message{*** [mtmdpl.cls] ---  (PKa, AK, PK, GJN, MSz)  v0.9.0-beta <2025-10-15>  ***}
 
 \newif\ifpdflatex\pdflatexfalse
-\NeedsTeXFormat{LaTeX2e} % 
-\ProvidesClass{mtmdpl}[2025/10/15 v0.9.0-beta MTM diploma class] 
+\NeedsTeXFormat{LaTeX2e} %
+\ProvidesClass{mtmdpl}[2025/10/15 v0.9.0-beta MTM diploma class]
 
 \RequirePackage{kvoptions}
 
@@ -23,8 +23,8 @@
 \ProcessKeyvalOptions*
 
 \DeclareOption{pdflatex}{\pdflatextrue}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} 
-\ProcessOptions\LoadClass[a4paper,twoside,openright]{report} 
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+\ProcessOptions\LoadClass[a4paper,twoside,openright]{report}
 
 \RequirePackage{xstring}
 
@@ -43,7 +43,13 @@
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
-\RequirePackage[english,polish]{babel}
+\IfStrEqCase{\ThesisLanguage}{%
+				{pl}{\RequirePackage[english,polish]{babel}}
+				{en}{\RequirePackage[polish,english]{babel}}
+                % Kolejność podania języków wpływa np. na nazwę spisu treści czy bibliografii
+			}
+
+
 
 % Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
 \RequirePackage{polski}
@@ -101,9 +107,9 @@
 \IfStrEqCase{\ThesisLanguage}{
 	{pl}{%
 		\def\thesisheaders{
-			\fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitlePL}}
+			\fancyfoot[LE,RO]{\small \@shortauthor\hfill\textit{\@shorttitlePL}}
 		}
-		
+
 		\def\thesistable{
 			\begin{tabular}{p{45mm}l}
 				Autor: & {\itshape \@author}\\[-1mm]
@@ -114,9 +120,9 @@
 	}
 	{en}{%
 		\def\thesisheaders{
-			\fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitleEN}}
+			\fancyfoot[LE,RO]{\small \@shortauthor\hfill\textit{\@shorttitleEN}}
 		}
-		
+
 		\def\thesistable{
 			\begin{tabular}{p{45mm}l}
 			Author: & {\itshape \@author}\\[-1mm]
@@ -128,36 +134,35 @@
 }
 
 \newcommand{\titlepages}{%
+        \pagenumbering{roman} % Rzymska numeracja przed pierwszym rozdziałem
 
 	\titlepage
-	
+
 	\begin{center}
 		\vspace*{1.5cm}
-		
+
 		\includegraphics[scale=0.6]{agh}
-		
-		\vspace*{2mm}
-		{
-			\scalebox{0.95}{\sffamily{\large{\bfseries{\scshape Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie}}}}
-			
-			\vspace*{1mm}
-			
-			{\sffamily\small\bfseries \@faculty}
-		}
-		\vspace*{15mm}
-		
+
+		\vspace*{3mm}
+
+        \resizebox{\textwidth}{!}{\sffamily{\bfseries{\scshape{Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie}}}}
+
+        \resizebox{0.99\textwidth}{!}{\sffamily{\bfseries{\MakeUppercase{\@faculty}}}}
+
+		\vspace*{14.5mm}
+
 		{\sffamily\Large \@thesistype}
-		\vspace*{9mm}
-		
-		{\sffamily\Large\itshape
+		\vspace*{9.5mm}
+
+		{\sffamily\large\itshape
 			\IfStrEqCase{\ThesisLanguage}{%
 				{pl}{\@titlePL}
 				{en}{\@titleEN}
 			}
 		}
-		\vspace*{1mm}
-		
-		{\sffamily\Large\itshape
+		\vspace*{1.5mm}
+
+		{\sffamily\large\itshape
 			\IfStrEqCase{\ThesisLanguage}{%
 				{pl}{\@titleEN}
 				{en}{\@titlePL}
@@ -165,40 +170,42 @@
 		}
 		\vspace{\fill}
 	\end{center}
-	
+
 	\noindent
 	{
 		\sffamily
 		\thesistable
 	}
-	
+
 	\vspace*{17mm}
-	
+
 	\centerline{\small\sffamily Kraków, \@date}
-	
+
 	\clearpage
-	\thispagestyle{empty} 
-	
+	\thispagestyle{empty}
+
+
+
 	% Strona z podziękowaniami.
 	{~}\vspace{20mm}
-	
+
 	\clearpage
 	\titlepage
-	
+
+        \setcounter{page}{3} % żeby w pdf dobrze numerowało (potrzebny hyperref)
+
 	\vspace*{15cm} \vfill
-	\begin{flushright} 
+	\begin{flushright}
 		\begin{minipage}[!h]{10cm}
 			{\Large\itshape \@acknowledgements}
 		\end{minipage}
 	\end{flushright}
-	
+
 	\clearpage
 	\thispagestyle{empty}
-	
+
 	~ \newpage
-	
-	% Obecna strona będzie mieć nr 5.
-	\setcounter{page}{5}
+
 }
 
 
@@ -213,16 +220,17 @@
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 
 \renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt} % dolne podkreślenie
 \fancyhf{}
 \fancyhead{}
-\fancyhead[RE,LO]{\slshape{\small \rightmark}}
+\fancyhead[RE]{\slshape{\small \leftmark}}
+\fancyhead[LO]{\slshape{\small \rightmark}}
 \fancyhead[RO,LE]{\bfseries \thepage}
 
 \thesisheaders
 
 \frenchspacing
-\sloppy 
+\sloppy
 \flushbottom
 
 
@@ -233,16 +241,16 @@
 \titleformat{\chapter}[block]
 {\bfseries\LARGE}{\filright \LARGE\thechapter. }{0ex}{}
 %odstępy: lewy, góra, dół
-\titlespacing{\chapter}{0pt}{17mm}{19mm}
+\titlespacing*{\chapter}{0mm}{17mm}{19mm}
 \titleformat{\section}[block]
 {\bfseries\Large}{\filright \Large\thesection. }{0ex}{}
-\titlespacing{\section}{7mm}{8mm plus 0mm minus 1mm}{4mm plus 0mm minus 1mm}
+\titlespacing*{\section}{0mm}{8mm plus 0mm minus 1mm}{4mm plus 0mm minus 1mm}
 \titleformat{\subsection}[block]
 {\bfseries\large}{\filright \large\thesubsection. }{0ex}{}
-\titlespacing{\subsection}{7mm}{6mm}{2.5mm}
+\titlespacing*{\subsection}{0mm}{6mm}{2.5mm}
 \titleformat{\subsubsection}[block]
 {\bfseries\normalsize}{\filright \normalsize\thesubsubsection. }{0ex}{}
-\titlespacing{\subsubsection}{7mm}{3mm}{1.5mm}
+\titlespacing*{\subsubsection}{0mm}{3mm}{1.5mm}
 
 % Określ maksymalny poziom numeracji (głębsze poziomy nie będą miały numeru).
 %   (np. 1 - chapter, 2 - section, itd.)
@@ -274,10 +282,17 @@
 \RequirePackage{siunitx}
 
 \sisetup{
-	output-decimal-marker = {,},  % symbol dziesiętny
+    mode=match,
+    reset-math-version=false,
+    detect-weight, % for boldface units
+    group-separator={\,},  % separator grupy 3 cyfr
+    per-mode=symbol,
 	%	round-mode=places,
 	%	round-precision=4,
-	group-separator={~},  % separator grupy 3 cyfr
+}
+\IfStrEqCase{\ThesisLanguage}{%
+    {pl}{\sisetup{output-decimal-marker={,}}} % polski separator dziesiętny
+    {en}{\sisetup{output-decimal-marker={.}}} % angielski separator dziesiętny
 }
 
 % =============================================================================
@@ -315,7 +330,8 @@
 	language=autobib,
 	autolang=other,
 	% Zapisuj datę dostępu do strony WWW w formacie RRRR-MM-DD.
-	urldate=iso8601,
+	urldate=iso,
+    seconds=true,
 	% Nie dodawaj numerów stron, na których występuje cytowanie.
 	backref=false,
 	% Podawaj ISBN.
@@ -406,8 +422,12 @@
 }
 
 \AtBeginDocument{
-	\renewcommand{\tablename}{Tabela}
-	\renewcommand{\figurename}{Rys.}
+    \IfStrEqCase{\ThesisLanguage}{%
+        {pl}{\renewcommand{\tablename}{Tabela}
+             \renewcommand{\figurename}{Rys.}}
+        {en}{\renewcommand{\tablename}{Table}
+             \renewcommand{\figurename}{Fig.}}
+    }
 }
 
 % =============================================================================

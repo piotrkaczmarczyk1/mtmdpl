@@ -48,11 +48,13 @@ Repozytorium zawiera zawiera:
 ## Changelog ##
 
 ### v0.9.0-beta ###
+  * zmiana nazw bibliografii, spisu treści, itp. w zależności od ustawień języka
+  * zmiana formatowania stopki - krótki tytuł pracy wyrównany do prawej
+  * zmiana numerowania wstępnej części pracy (tj. przed pierwszym rozdziałem) na rzymskie
   * zmiana formatowania strony tytułowej zgodnie z szablonem
   * zmiana nagłówka: strony parzyste - tytuł rozdziału, strony nieparzyste - tytuł sekcji
-  * zmiana formatowania stopki - krótki tytuł pracy wyrównany do prawej
-  * dostosowanie pakietu siunitx do języków pl i en
   * usunięcie wcięcia w pierwszym akapicie rozdziału/sekcji/podsekcji/...
   * usunięcie wcięć tytułów sekcji/podsekcji/...
-  * zmiana numerowania wstępnej części pracy (tj. przed pierwszym rozdziałem) na rzymskie
+  * dostosowanie pakietu siunitx do języków pl i en
+  * zmiana nazw rysunku i tabeli w zależności od ustawień języka
   * dodatkowe przykład
