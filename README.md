@@ -13,7 +13,7 @@ Oparty na [aghdpl v4.0](https://github.com/pkleczek-agh/aghdpl) autorstwa Pawła
 git clone https://github.com/piotrkaczmarczyk1/mtmdpl
 cd mtmdpl
 pdflatex thesis.tex
-
+```
 
 Klasa **aghdpl** (szablon dokumentu) została opracowana w celu ułatwienia studentom naszej Uczelni składania prac dyplomowych w systemie LaTeX. Odpowiednie opcje pozwalają na skład zarówno prac inżynierskich jak i magisterskich przez studentów wszystkich wydziałów AGH. Praca może zostać przygotowana w języku polskim lub angielskim.
 
@@ -23,7 +23,7 @@ Prezentowana wersja 4.0 jest zgodna z obowiązującym od roku akademickiego 2019
 ## Autorzy ##
 
   * [Piotr Kaczmarczyk](https://home.agh.edu.pl/pkaczmar)
-  * [Andrzej Kozdrowski]
+  * Andrzej Kozdrowski
   * [Paweł Kłeczek](https://skos.agh.edu.pl/osoba/pawel-kleczek-8552.html)
   * [Grzegorz J. Nalepa](https://skos.agh.edu.pl/osoba/grzegorz-jacek-nalepa-5324.html)
   * [Marcin Szpyrka](https://skos.agh.edu.pl/osoba/marcin-szpyrka-5059.html)
