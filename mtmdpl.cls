@@ -72,6 +72,7 @@
 \RequirePackage{subcaption}
 \RequirePackage{enumerate}
 \RequirePackage{enumitem}
+\RequirePackage[hidelinks]{hyperref}    % klikalne referencje, cytowania, spis treści, itd.
 
 % =============================================================================
 % SEC:   Ustawienia związane z formatowaniem tekstu
@@ -141,7 +142,7 @@
 	\begin{center}
 		\vspace*{1.5cm}
 
-		\includegraphics[scale=0.6]{agh}
+		\includegraphics[scale=1.38]{agh_znk_wbr_cmyk.eps}
 
 		\vspace*{3mm}
 
@@ -282,11 +283,14 @@
 \RequirePackage{siunitx}
 
 \sisetup{
-    mode=match,
+    detect-all=true,
+    mode=text,   % prosty krój cyfr i jednostek (jak w IEEE)
     reset-math-version=false,
     detect-weight, % for boldface units
     group-separator={\,},  % separator grupy 3 cyfr
     per-mode=symbol,
+    range-phrase={--},
+    range-units=single,
 	%	round-mode=places,
 	%	round-precision=4,
 }
@@ -294,6 +298,8 @@
     {pl}{\sisetup{output-decimal-marker={,}}} % polski separator dziesiętny
     {en}{\sisetup{output-decimal-marker={.}}} % angielski separator dziesiętny
 }
+
+\DeclareSIUnit\ohm{\ensuremath{\mathrm{\Omega}}}
 
 % =============================================================================
 % SEC:   Ustawienia wyświetlania URL-i

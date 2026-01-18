@@ -1,0 +1,69 @@
+\chapter{Dodatkowe przykłady i uwagi}
+\label{cha:dodatkowe_przyklady}
+
+Poniżej zamieszczam przykłady różnych obiektów, takich jak równania, ilustracje, tabele itp. Można je wykorzystać do stworzenia własnych obiektów.
+
+\section{Liczby i jednostki}
+Liczby i jednostki zapisujemy czcionką tekstową, niezależnie czy występują w tekście, czy w równaniu.
+
+Do zapisu liczb i jednostek używamy poleceń \texttt{\textbackslash num}, \texttt{\textbackslash unit} oraz \texttt{\textbackslash qty} z pakietu \texttt{siunitx}. Część dziesiętną w tym wypadku zawsze zapisujemy po kropce. W zależności od ustawień języka, kropka pozostanie kropką lub zostanie zamieniona na przecinek. Pakiet zadba też o poprawne separatory tysięczne, znaki minus oraz odstęp pomiędzy liczbą a jednostką.
+
+\begin{lstlisting}
+    Liczba $\pi$ w przybliżeniu wynosi \num{3.14}.
+    Jednostką częstotliwości jest \unit{\hertz}.
+    Stała Boltzmanna w przybliżeniu wynosi \qty{1.38e-23}{\joule\per\kelvin}.
+    Powierzchnia układu wynosi \qtyproduct{10 x 20}{\micro\meter}.
+    Pasmo FR3 obejmie częstotliwości pomiędzy FR1 i FR2, tj.
+        \qtyrange{7.125}{24.25}{\giga\hertz}.
+\end{lstlisting}
+
+    Liczba $\pi$ w przybliżeniu wynosi \qty{3.14}.
+
+    Jednostką częstotliwości jest \unit{\hertz}.
+
+    Stała Boltzmanna w przybliżeniu wynosi \qty{1.38e-23}{\joule\per\kelvin}.
+
+    Powierzchnia układu wynosi \qtyproduct{10 x 20}{\micro\meter}.
+
+    Pasmo FR3 obejmie częstotliwości pomiędzy FR1 i FR2, tj. \qtyrange{7.125}{24.25}{\giga\hertz}.
+
+    \vskip1em
+
+    Więcej przykładów w \textit{User manual} na stronie pakietu \url{https://ctan.org/pkg/siunitx}.
+
+\section{Symbole}
+
+W przeciwieństwie do liczb i jednostek, symbole fizyczne, matematyczne (np. zmienne), elektroniczne (np. oznaczenia elementów na schemacie), itp. zapisujemy czcionką matematyczną. Czcionką tekstową zapisujemy natomiast nazwy funkcji matematycznych (pełne i skrócone), skrótowce oraz słowa (pełne i skrócone).
+
+Jeśli symbol występuje w równaniu, środowisko domyślnie zmieni jego krój. Jeśli symbol umieszczamy w tekście, należy otoczyć go znakami dolara.
+
+Jeśli symbol posiada indeks (górny lub dolny), to krój indeksu również powinien być dobrany według powyższych reguł. Wyjątkowo, jeśli indeks jest jednoliterowy, nawet jeśli jest skrótem, może być pochylony, o ile nie prowadzi to niekonsekwencji w zapisie podobnych symboli.
+
+\begin{description}[labelwidth=2.5cm, leftmargin=2.5cm]
+    \item[prosty] jeśli jest liczbą, słowem, akronimem (wówczas obudowujemy go środowiskiem \texttt{\textbackslash text\{\}}),
+    \item[pochyły] jeśli jest symbolem.
+\end{description}
+
+\textbf{Przykład:}
+
+Tranzystor $M_\text{1}$ wymiarach $W$/$L$\,$=$\,\qty{20}{\micro\meter}/\qty{40}{\nano\meter} znajduje się w zakresie nasycenia ($V_{DS} > V_{GS} - V_{TH}$), wówczas prąd płynący przez jego dren można wyrazić następująco:
+\begin{equation}
+    I_{D\text{1}} = \frac{\num{1}}{\num{2}}\mu_{n}C_{ox}\frac{W}{L}\left(V_{GS}-V_{TH}\right)^2
+\end{equation}
+
+\section{Inne uwagi}
+    Polski cudzysłów w \LaTeX u otwieramy dwoma przecinkami \texttt{{,}{,}} a zamykamy dwoma apostrofami \texttt{{'}{'}} --- w ten sposób otrzymamy ,,tekst w cudzysłowie''.
+
+    Każda nowa myśl powinna stanowić nowy akapit. Warto stosować płynne przejścia tak, żeby zakończenie jednego akapitu naturalnie prowadziło do rozpoczęcia następnego.
+
+
+
+
+    \section*{TODO}
+    \begin{itemize}
+        \item Podpisy pod obrazkami z podobrazkami oraz odwołania.
+        \item Łamanie długich tabel.
+    \end{itemize}
+
+
+%----------------------------------------------------------------------

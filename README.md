@@ -58,3 +58,14 @@ Repozytorium zawiera zawiera:
   * dostosowanie pakietu siunitx do języków pl i en
   * zmiana nazw rysunku i tabeli w zależności od ustawień języka
   * dodatkowe przykład
+
+
+### v0.9.1-beta ###
+  * przeniesienie hyperref z praca.tex do mtmdpl.cls
+  * zamiana logo agh na plik wektorowy
+  * modyfikacja ustawień siunitx:
+    * automatyczne dopasowanie stylu
+    * wymuszenie prostego kroju liczb i jednostek, nawet w równaniach
+    * w zakresach: ustawienie znak (`--`) i trybu wyświetlania jednostki (tylko raz, na końcu zakresu)
+    * przedefiniowanie jednostki `\ohm`, aby wyświetlała się poprawnie dla ustawionej w pracy czcionki
+  * nowe przykłady w rozdziałach 3 i 4

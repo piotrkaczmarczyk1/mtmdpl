@@ -1,4 +1,5 @@
 \chapter{Przykłady elementów pracy dyplomowej}
+\label{cha:przyklady}
 
 \section{Liczba}
 
@@ -24,9 +25,13 @@ Pakiet \texttt{subcaption} pozwala na umieszczanie w podpisie rysunku odnośnik�
 		\framebox[2.0\width]{B}
 		\subcaption{\label{subfigure_b}}
 	\end{subfigure}
-	
+
 	\caption{\label{fig:subcaption_example}Przykład użycia \texttt{\textbackslash subcaption}: \protect\subref{subfigure_a} litera A, \protect\subref{subfigure_b} litera B.}
 \end{figure}
+
+Opis rysunku umieszczamy pod rysunkiem. Do każdego zamieszczonego rysunku należy odwołać się w tekście co najmniej raz. Rysunek powinien zostać zamieszczony w kodzie dokumentu bezpośrednio po akapicie, w którym po raz pierwszy wystąpiło do niego odwołanie.
+
+Aby rysunki nie ,,uciekały'' do kolejnych rozdziałów, na końcu rozdziału (lub sekcji) można wstawić polecenie \texttt{\textbackslash FloatBarrier}.
 
 \section{Tabela}
 
@@ -34,11 +39,11 @@ Pakiet \texttt{threeparttable} umożliwia dodanie do tabeli adnotacji: \\
 
 \begin{table}[h]
 	\centering
-	
+
 	\begin{threeparttable}
 		\caption{Przykład tabeli}
 		\label{tab:table_example}
-		
+
 		\begin{tabularx}{0.6\textwidth}{C{1}}
 			\toprule
 			\thead{Nagłówek\tnote{a}} \\
@@ -47,26 +52,59 @@ Pakiet \texttt{threeparttable} umożliwia dodanie do tabeli adnotacji: \\
 			Tekst 2 \\
 			\bottomrule
 		\end{tabularx}
-		
+
 		\begin{tablenotes}
 			\footnotesize
 			\item[a] Jakiś komentarz\textellipsis
 		\end{tablenotes}
-		
+
 	\end{threeparttable}
 \end{table}
+
+Opis tabeli umieszczamy \textbf{nad} tabelą. Podobnie jak w przypadku rysunków, do każdej zamieszczonej tabeli należy odwołać się w tekście przynajmniej raz.
 
 \section{Wzory matematyczne}
 
 Czasem zachodzi potrzeba wytłumaczenia znaczenia symboli użytych w równaniu. Można to zrobić z użyciem zdefiniowanego na potrzeby niniejszej klasy środowiska \texttt{eqwhere}.
-
+%
 \begin{equation}
 E = mc^2
 \end{equation}
-gdzie
+gdzie % ważne, żeby nie zostawić tu pustej linii
 \begin{eqwhere}[2cm]
 	\item[$m$] masa
 	\item[$c$] prędkość światła w próżni
 \end{eqwhere}
 
 Odległość półpauzy od lewego marginesu należy dobrać pod kątem najdłuższego symbolu (bądź listy symboli) poprzez odpowiednie ustawienie parametru tego środowiska (domyślnie: 2 cm).
+
+W przypadku przekształceń czy wyprowadzeń na kilka linii, możemy zastosować środowisko \texttt{eqnarray}, które pozwoli wyrównać równania, np. do znaku równości.
+%
+\begin{eqnarray}
+    a - b &=& c\label{eq:roznica}\\
+    a &=& b + c\label{eq:wynik}
+\end{eqnarray}
+
+Do równań można się odwołać poleceniem \texttt{\textbackslash eqref}. Podstawiając \eqref{eq:roznica} do \eqref{eq:wynik} otrzymamy tożsamość.
+
+Środowisko matematyczne niektóre litery traktuje jako szczególne symbole i dodaje do nich odstęp. Należy do nich m.in. litera ,,N'', dlatego też w zapisie $NF$ (\texttt{\$NF\$}) widoczny jest dodatkowy odstęp pomiędzy $N$ a $F$. Aby tego uniknąć, należy wszystkie litery danego oznaczenia zamknąć w odpowiednim środowisku, np. \texttt{mathit}, \texttt{mathrm} lub \texttt{text}. Jesli chcemy dodatkowo usunąć odstęp, możemy skorzystać z polecenia \texttt{\textbackslash !}. Wyniki prezentuje tabela~\ref{tab:math_acronym}.
+
+\begin{table}
+    \centering
+    \caption{Zapis symbolu złożonego z kilku liter w środowisku matematycznym}
+    \label{tab:math_acronym}
+	\begin{tabular}{ll}
+        \toprule
+        Kod & Efekt \\
+        \midrule
+		\texttt{\$NF\$} & $NF$ \\
+		\texttt{\$\textbackslash mathit\{NF\}\$} & $\mathit{NF}$ \\
+		\texttt{\$\textbackslash mathrm\{NF\}\$} & $\mathrm{NF}$ \\
+		\texttt{\$\textbackslash text\{NF\}\$}   & $\text{NF}$ \\
+        \texttt{\$f\_0\$} & $f_0$ \\
+		\texttt{\$f\textbackslash!\_0\$} & $f\!_0$ \\
+        \bottomrule
+	\end{tabular}
+\end{table}
+
+Jeśli symbolu używamy często, dla uproszczenia można zdefiniować własne polecenie w preambule dokumentu, np. \texttt{\textbackslash newcommand\{\textbackslash NF\}\{\textbackslash mathit\{NF\}\}}.
