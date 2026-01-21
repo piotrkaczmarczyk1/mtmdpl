@@ -1,4 +1,21 @@
-# README #
+# mtmdpl — Szablon pracy dyplomowej MTM (EAIiIB, AGH)
+
+Szablon klasy LaTeX dla kierunku **Mikroelektronika w Technice i Medycynie (MTM)**, wydział **EAIiIB**, **AGH**.
+
+Oparty na [aghdpl v4.0](https://github.com/pkleczek-agh/aghdpl) autorstwa dr. Pawła Kłeczka i oryginalnym szablonie prof. Marcina Szpyrki.
+
+## Status
+> Wersja: 1.0
+> Stabilna funkcjonalnie. Poprawki planowane tylko w przypadku zgłoszenia błędów, sugestii, lub zmian w wytycznych.
+
+## Szybki start
+```bash
+git clone https://github.com/piotrkaczmarczyk1/mtmdpl
+cd mtmdpl
+pdflatex praca.tex
+```
+
+## O klasie
 
 Klasa **aghdpl** (szablon dokumentu) została opracowana w celu ułatwienia studentom naszej Uczelni składania prac dyplomowych w systemie LaTeX. Odpowiednie opcje pozwalają na skład zarówno prac inżynierskich jak i magisterskich przez studentów wszystkich wydziałów AGH. Praca może zostać przygotowana w języku polskim lub angielskim.
 
@@ -7,6 +24,8 @@ Prezentowana wersja 4.0 jest zgodna z obowiązującym od roku akademickiego 2019
 
 ## Autorzy ##
 
+  * [Piotr Kaczmarczyk](https://home.agh.edu.pl/pkaczmar)
+  * Andrzej Kozdrowski
   * [Paweł Kłeczek](https://skos.agh.edu.pl/osoba/pawel-kleczek-8552.html)
   * [Grzegorz J. Nalepa](https://skos.agh.edu.pl/osoba/grzegorz-jacek-nalepa-5324.html)
   * [Marcin Szpyrka](https://skos.agh.edu.pl/osoba/marcin-szpyrka-5059.html)
@@ -15,9 +34,9 @@ Prezentowana wersja 4.0 jest zgodna z obowiązującym od roku akademickiego 2019
 ## Pliki ##
 
 Repozytorium zawiera zawiera:
-  * plik aghdpl.cls z klasą dokumentu,
-  * logo AGH w formacie JPG (potrzebne przy kompilacji programem _pdflatex_),
-  * przykładowe pliki źródłowe ilustrujące wykorzystanie klasy _aghdpl_.
+  * plik mtmdpl.cls z klasą dokumentu,
+  * logo AGH w formacie wektorowym (potrzebne przy kompilacji programem _pdflatex_),
+  * przykładowe pliki źródłowe ilustrujące wykorzystanie klasy _mtmdpl_.
 
 
 ## Uwagi ##
@@ -25,18 +44,38 @@ Repozytorium zawiera zawiera:
   * Wszystkie pliki zostały zapisane w kodowaniu **UTF-8**.
   * Klasa została zoptymalizowana do pracy z programem **pdflatex**.
   * Skrypt do usuwania wiszących przyimków: [tex-fixer](https://github.com/Alexander3/tex-fixer) (autor: Aleksander Kawala)
-  * Uwagi dotyczące działania klasy _aghdpl_ proszę przesyłać na adres e-mail: [pkleczek@agh.edu.pl](mailto:pkleczek@agh.edu.pl)
+  * Uwagi dotyczące działania klasy _mtmdpl_ proszę przesyłać na adres e-mail: [piotr.kaczmarczyk@agh.edu.pl](mailto:piotr.kaczmarczyk@agh.edu.pl)
 
 
 ## Changelog ##
 
-### v4.0 ###
+### v0.9.0-beta ###
+  * zmiana nazw bibliografii, spisu treści, itp. w zależności od ustawień języka
+  * zmiana formatowania stopki - krótki tytuł pracy wyrównany do prawej
+  * zmiana numerowania wstępnej części pracy (tj. przed pierwszym rozdziałem) na rzymskie
+  * zmiana formatowania strony tytułowej zgodnie z szablonem
+  * zmiana nagłówka: strony parzyste - tytuł rozdziału, strony nieparzyste - tytuł sekcji
+  * usunięcie wcięcia w pierwszym akapicie rozdziału/sekcji/podsekcji/...
+  * usunięcie wcięć tytułów sekcji/podsekcji/...
+  * dostosowanie pakietu siunitx do języków pl i en
+  * zmiana nazw rysunku i tabeli w zależności od ustawień języka
+  * dodatkowe przykład
 
-Zmiany związane ze zmianami _Zasad dyplomowania_:
-  * zmiana formatowania nazwy wydziału
-  * usunięcie nazwy katedry
-  * usunięcie _Oświadczenia o samodzielności pracy_ (obecnie dołączane jako osobny dokument)
-  * zapewnienie odpowiedniej kolejność tytułów pracy w zależności od wersji językowej
 
-Zmiany techniczne:
-  * zmiana sposobu podawania opcji języka pracy, obecnie jako parametr słownikowy klasy (np. `[language=en]`), domyślnie `pl`
+### v0.9.1-beta ###
+  * przeniesienie hyperref z praca.tex do mtmdpl.cls
+  * zamiana logo agh na plik wektorowy
+  * modyfikacja ustawień siunitx:
+    * automatyczne dopasowanie stylu
+    * wymuszenie prostego kroju liczb i jednostek, nawet w równaniach
+    * w zakresach: ustawienie znaku (`--`) i trybu wyświetlania jednostki (tylko raz, na końcu zakresu)
+    * przedefiniowanie jednostki `\ohm`, aby wyświetlała się poprawnie dla ustawionej w pracy czcionki
+  * nowe przykłady w rozdziałach 3 i 4
+
+### v1.0-beta ###
+  * automatyczne ustawianie bieżącego roku kalendarzowego
+  * konfiguracja pakietu subcaption tak, aby odnośniki do podilustracji zawsze były w nawiasach, np. 1(a)
+  * modyfikacja ustawień siunitx:
+    * wyświetlanie liczb zespolonych typowe dla elektroniki (j zamiast i; j przed liczbą)
+    * redefinicja `\complexqty` ze względu na używany przez nie domyślnie tekstowy znak "-"
+  * drobne zmiany w opisach i przykładach

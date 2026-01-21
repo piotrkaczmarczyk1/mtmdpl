@@ -1,43 +1,29 @@
-\documentclass[12pt]{aghdpl}
-% \documentclass[language=en,11pt]{aghdpl}  % praca w języku angielskim
+\documentclass[12pt]{mtmdpl}
+% \documentclass[language=en,12pt]{mtmdpl}  % praca w języku angielskim
+\usepackage{placeins}
 
-%---------------------------------------------------------------------------
+%----------------------------------------------------------------------
+\author{Adam Kowalski}
+\shortauthor{A. Kowalski}
 
-\author{Paweł Kłeczek}
-\shortauthor{P. Kłeczek}
+\titlePL{Szablon pracy dyplomowej na kierunku MTM, której tytuł jest tak długi, że nie mieści się w stopce w jednej linijce}
+\shorttitlePL{Szablon pracy dyplomowej na kierunku MTM\dots}
 
-%\titlePL{Przygotowanie bardzo długiej i pasjonującej pracy dyplomowej w~systemie~\LaTeX}
-%\titleEN{Preparation of a very long and fascinating bachelor or master thesis in \LaTeX}
-
-\titlePL{Przygotowanie pracy dyplomowej w~systemie~\LaTeX}
-\titleEN{Thesis in \LaTeX}
-
-
-\shorttitlePL{Przygotowanie pracy dyplomowej w~systemie \LaTeX} % skrócona wersja tytułu jeśli jest bardzo długi
-\shorttitleEN{Preparation of a long and fascinating thesis in \LaTeX}
+\titleEN{A Template of a Diploma Thesis in MTM with a Title So Long That It Does Not Fit in the Footer in One Line}
+\shorttitleEN{A Template of a Diploma Thesis in MTM\dots}
 
 
-% Dopuszczalne wartości[1,2]:
-% * "Projekt dyplomowy" - na koniec studiów I stopnia
-% * "Praca dyplomowa" - na koniec studiów II stopnia
-% [1] Zasady dyplomowania w roku akademickim 2020/2021 (Decyzja Dziekana WEAIiIB nr 16/2020 z dnia 9 grudnia 2020 roku)
-% [2] Załącznik nr 1a) do Decyzji nr 16/2020 Dziekana Wydziału EAIiIB z dnia 09 grudnia 2020 r.
-\thesistype{Praca dyplomowa}
-%\thesistype{Master of Science Thesis}
+\thesistype{Projekt dyplomowy} % jeśli praca inżynierska
+% \thesistype{Praca dyplomowa} % jeśli praca magisterska
 
-\supervisor{dr Paweł Kłeczek}
-%\supervisor{Paweł Kłeczek, PhD}
+\supervisor{dr inż. Piotr Kaczmarczyk}
+% \supervisor{Piotr Kaczmarczyk, PhD}
 
-\degreeprogramme{Automatyka i Robotyka}
-%\degreeprogramme{Automatics and Robotics}
+\degreeprogramme{Mikroelektronika w Technice i Medycynie}
 
-\date{2020}
+\date{\the\year} % rok kalendarzowy złożenia pracy
 
-%\department{Katedra Informatyki Stosowanej}
-%\department{Department of Applied Computer Science}
-
-\faculty{Wydział Elektrotechniki, Automatyki, Informatyki i Inżynierii Biomedycznej}
-%\faculty{Faculty of Electrical Engineering, Automatics, Computer Science and Biomedical Engineering}
+\faculty{Wydział Elektrotechniki, Automatyki, Informatyki i Inzynierii Biomedycznej}
 
 \acknowledgements{Serdecznie dziękuję \dots tu ciąg dalszych podziękowań np. dla promotora, żony, sąsiada itp.}
 
@@ -46,22 +32,22 @@
 
 	\titlepages
 	\RedefinePlainStyle
-	
+
 	\setcounter{tocdepth}{2}
 	\tableofcontents
-	\clearpage
-	
+    \clearpage
+
+    \pagenumbering{arabic} % zmiana numeracji na arabski
+    \setcounter{page}{1}  % dostosowanie odpowiedniej strony
+
 	\include{rozdzial1}
 	\include{rozdzial2}
 	\include{rozdzial3}
-	\include{tests}
-	
-	% itd.
+    \include{rozdzial4}
+
 	% \appendix
 	% \include{dodatekA}
 	% \include{dodatekB}
-	% itd.
-	
-	\printbibliography
 
+    \printbibliography[heading=bibintoc]
 \end{document}
