@@ -1,19 +1,21 @@
 # mtmdpl — Szablon pracy dyplomowej MTM (EAIiIB, AGH)
 
-Szablon klasy LaTeX dla kierunku **Mikroelektronika w Technice i Medycynie (MTM)**, wydział **EAIiIB**, AGH.
+Szablon klasy LaTeX dla kierunku **Mikroelektronika w Technice i Medycynie (MTM)**, wydział **EAIiIB**, **AGH**.
 
-Oparty na [aghdpl v4.0](https://github.com/pkleczek-agh/aghdpl) autorstwa Pawła Kłeczka i oryginalnym szablonie prof. Marcina Szpyrki.
+Oparty na [aghdpl v4.0](https://github.com/pkleczek-agh/aghdpl) autorstwa dr. Pawła Kłeczka i oryginalnym szablonie prof. Marcina Szpyrki.
 
 ## Status
-> Wersja: 0.9.0-beta
-> Stabilna funkcjonalnie, możliwe drobne poprawki w układzie i przykładach.
+> Wersja: 1.0
+> Stabilna funkcjonalnie. Poprawki planowane tylko w przypadku zgłoszenia błędów, sugestii, lub zmian w wytycznych.
 
 ## Szybki start
 ```bash
 git clone https://github.com/piotrkaczmarczyk1/mtmdpl
 cd mtmdpl
-pdflatex thesis.tex
+pdflatex praca.tex
 ```
+
+## O klasie
 
 Klasa **aghdpl** (szablon dokumentu) została opracowana w celu ułatwienia studentom naszej Uczelni składania prac dyplomowych w systemie LaTeX. Odpowiednie opcje pozwalają na skład zarówno prac inżynierskich jak i magisterskich przez studentów wszystkich wydziałów AGH. Praca może zostać przygotowana w języku polskim lub angielskim.
 
@@ -33,7 +35,7 @@ Prezentowana wersja 4.0 jest zgodna z obowiązującym od roku akademickiego 2019
 
 Repozytorium zawiera zawiera:
   * plik mtmdpl.cls z klasą dokumentu,
-  * logo AGH w formacie JPG (potrzebne przy kompilacji programem _pdflatex_),
+  * logo AGH w formacie wektorowym (potrzebne przy kompilacji programem _pdflatex_),
   * przykładowe pliki źródłowe ilustrujące wykorzystanie klasy _mtmdpl_.
 
 
@@ -66,6 +68,14 @@ Repozytorium zawiera zawiera:
   * modyfikacja ustawień siunitx:
     * automatyczne dopasowanie stylu
     * wymuszenie prostego kroju liczb i jednostek, nawet w równaniach
-    * w zakresach: ustawienie znak (`--`) i trybu wyświetlania jednostki (tylko raz, na końcu zakresu)
+    * w zakresach: ustawienie znaku (`--`) i trybu wyświetlania jednostki (tylko raz, na końcu zakresu)
     * przedefiniowanie jednostki `\ohm`, aby wyświetlała się poprawnie dla ustawionej w pracy czcionki
   * nowe przykłady w rozdziałach 3 i 4
+
+### v1.0-beta ###
+  * automatyczne ustawianie bieżącego roku kalendarzowego
+  * konfiguracja pakietu subcaption tak, aby odnośniki do podilustracji zawsze były w nawiasach, np. 1(a)
+  * modyfikacja ustawień siunitx:
+    * wyświetlanie liczb zespolonych typowe dla elektroniki (j zamiast i; j przed liczbą)
+    * redefinicja `\complexqty` ze względu na używany przez nie domyślnie tekstowy znak "-"
+  * drobne zmiany w opisach i przykładach

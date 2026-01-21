@@ -11,22 +11,25 @@ Pakiet \texttt{siunitx} zadba o to, by liczba została poprawnie sformatowana: \
 
 \section{Rysunek}
 
-Pakiet \texttt{subcaption} pozwala na umieszczanie w podpisie rysunku odnośników do ,,podilustracji'': \\
+Pakiet \texttt{subcaption} pozwala na umieszczanie w podpisie rysunku odnośników do ,,podilustracji''. Przykład jego zastosowania prezentuje rys.~\ref{fig:subfigure_example}. Do ,,podilustracji'' z rys.~\ref{subfig:a} można odwołać się także w tekście. Analogicznie jest w przypadku drugiej ,,podilustracji'' [rys.~\ref{subfig:b}].
 
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}{0.35\textwidth}
+	\begin{subfigure}[b]{0.35\textwidth}
 		\centering
 		\framebox[2.0\width]{A}
-		\subcaption{\label{subfigure_a}}
+		\caption{}
+        \label{subfig:a}
 	\end{subfigure}
-	\begin{subfigure}{0.35\textwidth}
+	\begin{subfigure}[b]{0.35\textwidth}
 		\centering
 		\framebox[2.0\width]{B}
-		\subcaption{\label{subfigure_b}}
+        \caption{}
+		\label{subfig:b}
 	\end{subfigure}
 
-	\caption{\label{fig:subcaption_example}Przykład użycia \texttt{\textbackslash subcaption}: \protect\subref{subfigure_a} litera A, \protect\subref{subfigure_b} litera B.}
+	\caption{Przykład użycia \texttt{\textbackslash subfigure}: \subref{subfig:a} litera A, \subref{subfig:b} litera B.}
+    \label{fig:subfigure_example}
 \end{figure}
 
 Opis rysunku umieszczamy pod rysunkiem. Do każdego zamieszczonego rysunku należy odwołać się w tekście co najmniej raz. Rysunek powinien zostać zamieszczony w kodzie dokumentu bezpośrednio po akapicie, w którym po raz pierwszy wystąpiło do niego odwołanie.

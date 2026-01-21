@@ -69,7 +69,7 @@
 \RequirePackage{tocloft}
 
 \RequirePackage[font=small, labelfont=bf, labelsep=period]{caption}
-\RequirePackage{subcaption}
+% \RequirePackage{subcaption}
 \RequirePackage{enumerate}
 \RequirePackage{enumitem}
 \RequirePackage[hidelinks]{hyperref}    % klikalne referencje, cytowania, spis treści, itd.
@@ -291,6 +291,8 @@
     per-mode=symbol,
     range-phrase={--},
     range-units=single,
+    complex-root-position=before-number, % jednostka urojona wyświetlana przed liczbą (typ. w elektronice)
+    output-complex-root=\ensuremath{j} % j (w trybie mat.) jako jednostka urojona (typ. w elektronice)
 	%	round-mode=places,
 	%	round-precision=4,
 }
@@ -298,6 +300,9 @@
     {pl}{\sisetup{output-decimal-marker={,}}} % polski separator dziesiętny
     {en}{\sisetup{output-decimal-marker={.}}} % angielski separator dziesiętny
 }
+
+% domyślny complexqty używa tekstowego znaku "-"
+\renewcommand{\complexqty}[2]{\complexnum{#1}\,\unit{#2}}
 
 \DeclareSIUnit\ohm{\ensuremath{\mathrm{\Omega}}}
 
@@ -313,10 +318,12 @@
 % SEC:   Ustawienia podpisów pod ilustracjami
 % =============================================================================
 
+\RequirePackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+% w takiej konfiguracji \ref, \subref i \caption do "podilustracji" zawsze będą otoczone nawiasami
+
 \captionsetup[subfigure]{labelfont=md}
 \captionsetup{%
-	% Użyj okrągłych nawiasów wokół odwołań do "podilustracji".
-	subrefformat=parens,
 	% Margines z obu stron podpisu.
 	margin=2cm,
 	% W przypadku podpisów mieszczących się w jednej linii nie stosuj justowania, tylko wyśrodkuj cały podpis.
