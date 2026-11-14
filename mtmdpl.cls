@@ -3,7 +3,7 @@
 % File:     mtmdpl.cls           (LaTeX Document class option "mtmdpl")
 %
 % Author:  Piotr Kaczmarczyk  (piotr.kaczmarczyk@agh.edu.pl)
-%          Andrzej Kozdrowki  (akozdrowski@stduent.agh.edu.pl)
+%          Andrzej Kozdrowki  (akozdrowski@student.agh.edu.pl)
 %          Paweł Kłeczek      (pkleczek@agh.edu.pl)
 %          Grzegorz J. Nalepa (gjn@agh.edu.pl)
 %          Marcin Szpyrka     (mszpyrka@agh.edu.pl)
@@ -11,11 +11,11 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\message{*** [mtmdpl.cls] ---  (PKa, AK, PK, GJN, MSz)  v0.9.0-beta <2025-10-15>  ***}
+\message{*** [mtmdpl.cls] ---  (PKa, AK, PK, GJN, MSz)  v1.0.1-beta <2026-10-21>  ***}
 
 \newif\ifpdflatex\pdflatexfalse
 \NeedsTeXFormat{LaTeX2e} %
-\ProvidesClass{mtmdpl}[2025/10/15 v0.9.0-beta MTM diploma class]
+\ProvidesClass{mtmdpl}[2026/10/21 v1.0.1-beta MTM diploma class]
 
 \RequirePackage{kvoptions}
 
@@ -336,9 +336,9 @@
 % =============================================================================
 
 \RequirePackage[
-	style=numeric,
+	style=numeric-comp, % kompresuj kolejne numery (więcej niż 2)  w zakresy.
 	sorting=none,
-	%
+	sortcites=true,    % sortuj numery cytowań w rosnącą kolejność.
 	% Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
 	language=autobib,
 	autolang=other,

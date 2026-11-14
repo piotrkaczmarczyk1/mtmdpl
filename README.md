@@ -25,7 +25,7 @@ Prezentowana wersja 4.0 jest zgodna z obowiązującym od roku akademickiego 2019
 ## Autorzy ##
 
   * [Piotr Kaczmarczyk](https://home.agh.edu.pl/pkaczmar)
-  * Andrzej Kozdrowski
+  * [Andrzej Kozdrowski](https://github.com/AKozdr03)
   * [Paweł Kłeczek](https://skos.agh.edu.pl/osoba/pawel-kleczek-8552.html)
   * [Grzegorz J. Nalepa](https://skos.agh.edu.pl/osoba/grzegorz-jacek-nalepa-5324.html)
   * [Marcin Szpyrka](https://skos.agh.edu.pl/osoba/marcin-szpyrka-5059.html)
@@ -79,3 +79,8 @@ Repozytorium zawiera zawiera:
     * wyświetlanie liczb zespolonych typowe dla elektroniki (j zamiast i; j przed liczbą)
     * redefinicja `\complexqty` ze względu na używany przez nie domyślnie tekstowy znak "-"
   * drobne zmiany w opisach i przykładach
+
+### v1.0.1-beta ###
+  * więcej niż dwa kolejne odnośniki bibliograficzne zostają zapisane w zakresie, nie po przecinku
+  * dodane automatyczne sortowanie kolejności odnośników bibliograficznych 
+  * poprawy literówek i drobne zmiany w klasie
