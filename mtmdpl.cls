@@ -359,8 +359,6 @@
 	backend=biber   % - jeżeli używamy biber-a
 ]{biblatex}
 
-\defbibnote{bibhead}{\markboth{\bibname}{\bibname}} % zmiana żywej paginy w bibliografii
-
 \RequirePackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
 \DeclareQuoteAlias{croatian}{polish}

@@ -83,5 +83,4 @@ Repozytorium zawiera zawiera:
 ### v1.0.1-beta ###
   * więcej niż dwa kolejne odnośniki bibliograficzne zostają zapisane w zakresie, nie po przecinku
   * dodane automatyczne sortowanie kolejności odnośników bibliograficznych 
-  * zmiana żywej paginy w bibliografii
-  * drobne zmiany w opisach
+  * poprawy literówek i drobne zmiany w klasie
